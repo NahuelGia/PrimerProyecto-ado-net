@@ -58,7 +58,15 @@ namespace negocio
 
             try
             {
-                datos.asignarConsulta("INSERT INTO DISCOS VALUES ('"+ nuevoDisco.Titulo +"','"+ nuevoDisco.FechaLanzamiento.ToShortDateString()+"', "+ nuevoDisco.CantidadCanciones +" , 'Imagen',"+ nuevoDisco.Genero.Id +","+ nuevoDisco.Formato.Id +" )");
+                datos.asignarConsulta("INSERT INTO DISCOS VALUES ( @titulo, @fechaLanzamiento, @cantidadCanciones, @urlImagen, @idGenero, @idFormato)");
+
+                datos.setearParametro("@titulo", nuevoDisco.Titulo);
+                datos.setearParametro("@fechaLanzamiento", nuevoDisco.FechaLanzamiento.ToString("yyyy/MM/dd"));
+                datos.setearParametro("@cantidadCanciones", nuevoDisco.CantidadCanciones);
+                datos.setearParametro("@urlImagen", "Proximamente");
+                datos.setearParametro("@idGenero", nuevoDisco.Genero.Id);
+                datos.setearParametro("@idFormato", nuevoDisco.Formato.Id);
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

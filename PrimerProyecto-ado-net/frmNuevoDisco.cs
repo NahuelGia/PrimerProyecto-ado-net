@@ -29,15 +29,19 @@ namespace PrimerProyecto_ado_net
             Disco disco = new Disco();
             DiscoNegocio negocio = new DiscoNegocio();
 
-            disco.Titulo = txtTitulo.Text;
-            disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
-            disco.CantidadCanciones = int.Parse(txtCantCanciones.Text);
-            disco.Genero = (Genero)cbGenero.SelectedItem;
-            disco.Formato = (Formato)cbFormato.SelectedItem;
-
-            negocio.Agregar(disco);
-
-            Close();
+            if (validarCampos())
+            {
+                disco.Titulo = txtTitulo.Text;
+                disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
+                disco.CantidadCanciones = int.Parse(txtCantCanciones.Text);
+                disco.Genero = (Genero)cbGenero.SelectedItem;
+                disco.Formato = (Formato)cbFormato.SelectedItem;
+                negocio.Agregar(disco);
+                Close();
+            } else
+            {
+                MessageBox.Show("Debe completar todos los campos");
+            }
 
         }
 
@@ -62,6 +66,23 @@ namespace PrimerProyecto_ado_net
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
                 e.Handled = true;
+        }
+
+        private List<TextBox> camposObligatorios()
+        {
+            List<TextBox> lista = new List<TextBox>
+            {
+                txtCantCanciones,
+                txtTitulo
+            };
+            return lista;
+        }
+
+        private Boolean validarCampos()
+        {
+            bool resultado = camposObligatorios().All(campo => !string.IsNullOrEmpty(campo.Text));
+
+            return (resultado);
         }
     }
 }

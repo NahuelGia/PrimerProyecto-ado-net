@@ -1,0 +1,16 @@
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\PrimerProyecto-ado-net.exe.config
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\PrimerProyecto-ado-net.exe
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\PrimerProyecto-ado-net.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.csproj.AssemblyReference.cache
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto_ado_net.Properties.Resources.resources
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.csproj.GenerateResource.cache
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.csproj.CoreCompileInputs.cache
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.exe
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\dominio.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\negocio.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\dominio.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\negocio.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.csproj.CopyComplete
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto_ado_net.frmDiscos.resources
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto_ado_net.frmNuevoDisco.resources

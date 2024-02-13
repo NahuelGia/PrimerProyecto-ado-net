@@ -22,14 +22,23 @@ namespace PrimerProyecto_ado_net
 
         private void frmDiscos_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void cargar()
+        {
             DiscoNegocio discoNegocio = new DiscoNegocio();
-            listaDiscos = discoNegocio.listar();
-
-            dgvDiscos.DataSource = listaDiscos;
-            dgvDiscos.Columns["UrlImagen"].Visible = false; 
-
-            this.cargarImagen(listaDiscos[0].UrlImagen ); // cargo la imagen del primer elemento
-
+            try
+            {
+                listaDiscos = discoNegocio.listar();
+                dgvDiscos.DataSource = listaDiscos;
+                dgvDiscos.Columns["UrlImagen"].Visible = false;
+                cargarImagen(listaDiscos[0].UrlImagen); // cargo la imagen del primer elemento
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
@@ -57,6 +66,12 @@ namespace PrimerProyecto_ado_net
         {
             frmNuevoDisco formulario = new frmNuevoDisco();
             formulario.ShowDialog();
+            cargar();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            cargar();
         }
     }
 }
