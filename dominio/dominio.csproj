@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Disco.cs" />
-    <Compile Include="Estilo.cs" />
+    <Compile Include="Genero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tipo.cs" />
+    <Compile Include="Formato.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

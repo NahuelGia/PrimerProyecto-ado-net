@@ -23,7 +23,7 @@ namespace PrimerProyecto_ado_net
         private void frmDiscos_Load(object sender, EventArgs e)
         {
             DiscoNegocio discoNegocio = new DiscoNegocio();
-            listaDiscos = discoNegocio.listarDisco();
+            listaDiscos = discoNegocio.listar();
 
             dgvDiscos.DataSource = listaDiscos;
             dgvDiscos.Columns["UrlImagen"].Visible = false; 
@@ -45,7 +45,7 @@ namespace PrimerProyecto_ado_net
             {
                 pbTapa.Load(imagen);
             }
-            catch (Exception ex )
+            catch (Exception )
             {
 
                 pbTapa.Image = pbTapa.ErrorImage;
@@ -53,5 +53,10 @@ namespace PrimerProyecto_ado_net
             }
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmNuevoDisco formulario = new frmNuevoDisco();
+            formulario.ShowDialog();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace dominio
         public DateTime FechaLanzamiento { get; set;}
         public int CantidadCanciones { get; set; }
         public string UrlImagen {  get; set; }
-        public Estilo Genero { get; set; }
-        public Tipo TipoEdicion { get; set; }
+        public Genero Genero { get; set; }
+        public Formato Formato { get; set; }
     }
 }

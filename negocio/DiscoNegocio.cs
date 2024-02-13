@@ -10,7 +10,7 @@ namespace negocio
 {
     public class DiscoNegocio
     {
-        public List<Disco> listarDisco()
+        public List<Disco> listar()
         {
             List<Disco> listaActual = new List<Disco>();
             AccesoDatos datos = new AccesoDatos();
@@ -18,21 +18,21 @@ namespace negocio
 
             try
             {
-                datos.asignarConsulta("SELECT d.Id, d.Titulo, d.FechaLanzamiento, d.CantidadCanciones, d.UrlImagenTapa, e.Descripcion Estilo , te.Descripcion Edicion \r\nFROM DISCOS  d \r\nJOIN ESTILOS e ON e.id = d.IdEstilo \r\nJOIN TIPOSEDICION te ON te.id = d.IdTipoEdicion");
+                datos.asignarConsulta("SELECT d.Id, d.Titulo, d.FechaLanzamiento, d.CantidadCanciones, d.UrlImagenTapa, e.Descripcion Estilo , te.Descripcion Edicion \r\nFROM DISCOS  d \r\nJOIN GENEROS e ON e.id = d.IdGenero \r\nJOIN FORMATOS te ON te.id = d.IdFormato");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read()) // Cargo los discos con su info
                 {
                     Disco disco = new Disco();
-                    disco.TipoEdicion = new Tipo();
-                    disco.Genero = new Estilo();
+                    disco.Formato = new Formato();
+                    disco.Genero = new Genero();
 
                     disco.Id = (int)datos.Lector["Id"];
                     disco.Titulo = (string)datos.Lector["Titulo"];
                     disco.FechaLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
                     disco.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
                     disco.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
-                    disco.TipoEdicion.Nombre = (string)datos.Lector["Edicion"];
+                    disco.Formato.Nombre = (string)datos.Lector["Edicion"];
                     disco.Genero.Nombre = (string)datos.Lector["Estilo"];
 
                     listaActual.Add(disco);
@@ -51,5 +51,25 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void Agregar(Disco nuevoDisco)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.asignarConsulta("INSERT INTO DISCOS VALUES ('"+ nuevoDisco.Titulo +"','"+ nuevoDisco.FechaLanzamiento.ToShortDateString()+"', "+ nuevoDisco.CantidadCanciones +" , 'Imagen',"+ nuevoDisco.Genero.Id +","+ nuevoDisco.Formato.Id +" )");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }
