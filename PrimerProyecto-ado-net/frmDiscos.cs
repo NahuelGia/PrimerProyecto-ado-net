@@ -13,7 +13,8 @@ using negocio;
 namespace PrimerProyecto_ado_net
 {
     public partial class frmDiscos : Form
-    {
+
+    {  
         private List<Disco> listaDiscos;
         public frmDiscos()
         {
@@ -64,14 +65,43 @@ namespace PrimerProyecto_ado_net
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmNuevoDisco formulario = new frmNuevoDisco();
-            formulario.ShowDialog();
+            frmNuevoDisco formularioAlta = new frmNuevoDisco();
+            formularioAlta.ShowDialog();
             cargar();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Disco seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+            frmNuevoDisco formularioAlta = new frmNuevoDisco(seleccionado);
+            formularioAlta.ShowDialog();
+            cargar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DiscoNegocio negocio = new DiscoNegocio();
+            Disco seleccionado;
+
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Seguro que querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);  
+                if(respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado);
+                    this.cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

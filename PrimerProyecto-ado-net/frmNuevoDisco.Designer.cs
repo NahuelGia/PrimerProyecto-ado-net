@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoDisco));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblFechaDeLanzamiento = new System.Windows.Forms.Label();
             this.lblCantCanciones = new System.Windows.Forms.Label();
@@ -40,6 +41,10 @@
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.pbUrlImagen = new System.Windows.Forms.PictureBox();
+            this.lblUrlImagen = new System.Windows.Forms.Label();
+            this.txtUrlImagen = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUrlImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -95,6 +100,7 @@
             // txtTitulo
             // 
             this.txtTitulo.Location = new System.Drawing.Point(183, 44);
+            this.txtTitulo.MaxLength = 100;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(144, 20);
             this.txtTitulo.TabIndex = 0;
@@ -102,6 +108,7 @@
             // txtCantCanciones
             // 
             this.txtCantCanciones.Location = new System.Drawing.Point(183, 96);
+            this.txtCantCanciones.MaxLength = 4;
             this.txtCantCanciones.Name = "txtCantCanciones";
             this.txtCantCanciones.Size = new System.Drawing.Size(45, 20);
             this.txtCantCanciones.TabIndex = 2;
@@ -153,11 +160,45 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // pbUrlImagen
+            // 
+            this.pbUrlImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbUrlImagen.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbUrlImagen.ErrorImage")));
+            this.pbUrlImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbUrlImagen.InitialImage")));
+            this.pbUrlImagen.Location = new System.Drawing.Point(365, 44);
+            this.pbUrlImagen.Name = "pbUrlImagen";
+            this.pbUrlImagen.Size = new System.Drawing.Size(325, 219);
+            this.pbUrlImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUrlImagen.TabIndex = 7;
+            this.pbUrlImagen.TabStop = false;
+            // 
+            // lblUrlImagen
+            // 
+            this.lblUrlImagen.AutoSize = true;
+            this.lblUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUrlImagen.Location = new System.Drawing.Point(91, 176);
+            this.lblUrlImagen.Name = "lblUrlImagen";
+            this.lblUrlImagen.Size = new System.Drawing.Size(83, 18);
+            this.lblUrlImagen.TabIndex = 8;
+            this.lblUrlImagen.Text = "Url Imagen:";
+            // 
+            // txtUrlImagen
+            // 
+            this.txtUrlImagen.Location = new System.Drawing.Point(183, 177);
+            this.txtUrlImagen.MaxLength = 200;
+            this.txtUrlImagen.Name = "txtUrlImagen";
+            this.txtUrlImagen.Size = new System.Drawing.Size(144, 20);
+            this.txtUrlImagen.TabIndex = 9;
+            this.txtUrlImagen.Leave += new System.EventHandler(this.txtUrlImagen_Leave);
+            // 
             // frmNuevoDisco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 307);
+            this.ClientSize = new System.Drawing.Size(751, 312);
+            this.Controls.Add(this.txtUrlImagen);
+            this.Controls.Add(this.lblUrlImagen);
+            this.Controls.Add(this.pbUrlImagen);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cbGenero);
@@ -172,8 +213,9 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmNuevoDisco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmNuevoDisco";
+            this.Text = "Nuevo Disco";
             this.Load += new System.EventHandler(this.frmNuevoDisco_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbUrlImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +235,8 @@
         private System.Windows.Forms.ComboBox cbGenero;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.PictureBox pbUrlImagen;
+        private System.Windows.Forms.Label lblUrlImagen;
+        private System.Windows.Forms.TextBox txtUrlImagen;
     }
 }

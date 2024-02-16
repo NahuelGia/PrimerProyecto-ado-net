@@ -14,9 +14,17 @@ namespace PrimerProyecto_ado_net
 {
     public partial class frmNuevoDisco : Form
     {
+        private Disco disco = null;
         public frmNuevoDisco()
         {
             InitializeComponent();
+        }
+
+        public frmNuevoDisco(Disco recibido)
+        {
+            InitializeComponent();
+            this.disco = recibido;
+            this.Text = "Modificar Disco";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -26,22 +34,42 @@ namespace PrimerProyecto_ado_net
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Disco disco = new Disco();
             DiscoNegocio negocio = new DiscoNegocio();
 
-            if (validarCampos())
+            try
             {
+                if(disco == null)
+                {
+                    disco = new Disco();
+                }
+
                 disco.Titulo = txtTitulo.Text;
                 disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
                 disco.CantidadCanciones = int.Parse(txtCantCanciones.Text);
                 disco.Genero = (Genero)cbGenero.SelectedItem;
                 disco.Formato = (Formato)cbFormato.SelectedItem;
-                negocio.Agregar(disco);
+                disco.UrlImagen = txtUrlImagen.Text;
+
+                if(disco.Id != 0)
+                {
+                    negocio.modificar(disco);
+                    MessageBox.Show("Disco modificado");
+
+                }
+                else
+                {
+                    negocio.agregar(disco);
+                    MessageBox.Show("Disco agregado");
+                }
+
                 Close();
-            } else
-            {
-                MessageBox.Show("Debe completar todos los campos");
+
             }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        
 
         }
 
@@ -53,7 +81,24 @@ namespace PrimerProyecto_ado_net
             try
             {
                 cbFormato.DataSource = formatoNegocio.listar();
+                cbFormato.ValueMember = "Id";
+                cbFormato.DisplayMember = "Nombre";
+
                 cbGenero.DataSource = generoNegocio.listar();
+                cbGenero.ValueMember = "Id";
+                cbGenero.DisplayMember = "Nombre";
+
+                if(disco != null)
+                {
+                    txtTitulo.Text = disco.Titulo;
+                    dtpFechaLanzamiento.Value = disco.FechaLanzamiento;
+                    txtCantCanciones.Text = disco.CantidadCanciones.ToString();
+                    txtUrlImagen.Text = disco.UrlImagen;
+                    cargarImagen(disco.UrlImagen);
+                    cbFormato.SelectedValue = disco.Formato.Id;
+                    cbGenero.SelectedValue = disco.Genero.Id;
+                }
+
             }
             catch (Exception ex)
             {
@@ -78,11 +123,24 @@ namespace PrimerProyecto_ado_net
             return lista;
         }
 
-        private Boolean validarCampos()
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
         {
-            bool resultado = camposObligatorios().All(campo => !string.IsNullOrEmpty(campo.Text));
-
-            return (resultado);
+            cargarImagen(txtUrlImagen.Text);
         }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbUrlImagen.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pbUrlImagen.Image = pbUrlImagen.ErrorImage;
+
+            }
+        }
+
     }
 }
