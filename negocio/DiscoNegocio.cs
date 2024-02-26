@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
+using System.Data;
 
 namespace negocio
 {
@@ -123,6 +124,52 @@ namespace negocio
 
                 throw ex;
             }
+        }
+
+        public List<Disco> filtrar(string condicion)
+        {
+            List<Disco> discoFiltrados = new List<Disco>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "SELECT d.Id, d.Titulo, d.FechaLanzamiento, d.CantidadCanciones, d.UrlImagenTapa, g.Descripcion Estilo, g.id IdEstilo , f.id IdFormato ,f.Descripcion Edicion FROM DISCOS  d JOIN GENEROS g ON g.id = d.IdGenero JOIN FORMATOS f ON f.id = d.IdFormato WHERE d.Activo = 1 AND " + condicion;
+
+                datos.asignarConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Disco disco = new Disco();
+                    disco.Formato = new Formato();
+                    disco.Genero = new Genero();
+
+                    disco.Id = (int)datos.Lector["Id"];
+                    disco.Titulo = (string)datos.Lector["Titulo"];
+                    disco.FechaLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
+                    disco.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
+                    disco.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
+                    disco.Formato.Nombre = (string)datos.Lector["Edicion"];
+                    disco.Formato.Id = (int)datos.Lector["IdFormato"];
+                    disco.Genero.Nombre = (string)datos.Lector["Estilo"];
+                    disco.Genero.Id = (int)datos.Lector["IdEstilo"];
+
+                    discoFiltrados.Add(disco);
+
+                }
+
+                return discoFiltrados;
+
+            } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
 
     }

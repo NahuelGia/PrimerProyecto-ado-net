@@ -34,7 +34,14 @@ namespace PrimerProyecto_ado_net
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            ErrorProvider error = new ErrorProvider();
             DiscoNegocio negocio = new DiscoNegocio();
+
+            if (camposObligatorios().Any(campo => String.IsNullOrWhiteSpace(campo.Text)))
+            {
+                MessageBox.Show("Por favor complete todos los campos antes de continuar");
+                return;
+            }
 
             try
             {
@@ -118,7 +125,8 @@ namespace PrimerProyecto_ado_net
             List<TextBox> lista = new List<TextBox>
             {
                 txtCantCanciones,
-                txtTitulo
+                txtTitulo,
+                txtUrlImagen
             };
             return lista;
         }

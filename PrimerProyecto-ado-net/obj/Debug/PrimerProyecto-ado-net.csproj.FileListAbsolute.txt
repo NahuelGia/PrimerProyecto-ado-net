@@ -11,6 +11,8 @@ C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\De
 C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\negocio.dll
 C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\dominio.pdb
 C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\negocio.pdb
-C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto-ado-net.csproj.CopyComplete
 C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto_ado_net.frmDiscos.resources
 C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerProyecto_ado_net.frmNuevoDisco.resources
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\obj\Debug\PrimerPr.6DBE1ED2.Up2Date
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\filtros.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\PrimerProyecto-ado-net\bin\Debug\filtros.pdb

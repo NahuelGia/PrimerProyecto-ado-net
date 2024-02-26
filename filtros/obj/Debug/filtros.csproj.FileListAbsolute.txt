@@ -1,0 +1,11 @@
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\filtros.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\filtros.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\dominio.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\negocio.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\dominio.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\bin\Debug\negocio.pdb
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\obj\Debug\filtros.csproj.AssemblyReference.cache
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\obj\Debug\filtros.csproj.CoreCompileInputs.cache
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\obj\Debug\filtros.csproj.Up2Date
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\obj\Debug\filtros.dll
+C:\Users\sulac\source\repos\PrimerProyecto-ado-net\filtros\obj\Debug\filtros.pdb
